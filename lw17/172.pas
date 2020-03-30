@@ -28,26 +28,26 @@ END;{ReadDigit}
 PROCEDURE ReadNumber(VAR F: TEXT; VAR N: INTEGER);
 VAR 
   Fnum: TEXT;
-  Sum: INTEGER;
+  Max: INTEGER;
 BEGIN{ReadNumber}
-  Sum := 0;
+  Max := 0;
   N := 0;
-  WHILE (Sum > -1) AND NOT EOLN(F) AND (N > -1)
+  WHILE (Max > -1) AND NOT EOLN(F) AND (N > -1)
   DO
     BEGIN
       ReadDigit(F, N);
       IF (N > -1)
       THEN
-        IF (Sum < MAXINT DIV 10 - N) AND (N > -1)
+        IF (Max < MAXINT DIV 10 - N) AND (N > -1)
         THEN
           BEGIN
-            Sum := Sum * 10 + N;
+            Max := Max * 10 + N;
             READ(F);
           END
         ELSE
-          Sum := -1;
+          Max := -1;
     END;
-  N := Sum
+  N := Max
 END;{ReadNumber}
 BEGIN{Number}
   ReadNumber(INPUT, Num);
