@@ -27,7 +27,6 @@ BEGIN{ReadDigit}
 END;{ReadDigit}
 PROCEDURE ReadNumber(VAR F: TEXT; VAR N: INTEGER);
 VAR 
-  Fnum: TEXT;
   Max: INTEGER;
 BEGIN{ReadNumber}
   Max := 0;
