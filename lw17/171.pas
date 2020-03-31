@@ -1,41 +1,40 @@
 PROGRAM ReadDigitTest(INPUT, OUTPUT);
 VAR 
-  Dig, Sum: INTEGER;
-PROCEDURE ReadDigit(VAR F: TEXT; VAR D: INTEGER);
+  CurrentDigit, Sum: INTEGER;
+PROCEDURE ReadDigit(VAR Finput: TEXT; VAR Digit: INTEGER);
 VAR 
   Ch: CHAR;
-  Fdig: TEXT;
+  Fdigit: TEXT;
 BEGIN{ReadDigit}
-  REWRITE(Fdig);
-  IF (NOT EOLN(F))
+  REWRITE(Fdigit);
+  IF (NOT EOLN(Finput))
   THEN
     BEGIN
-      READ(F, Ch);
-      IF (Ch = '1') OR (Ch = '2') OR (Ch = '3') OR (Ch = '4') OR (Ch = '5') 
-        OR (Ch = '6') OR (Ch = '7') OR (Ch = '8') OR (Ch = '9')
+      READ(Finput, Ch);
+      IF (Ch >= '0') AND (Ch <= '9')
       THEN
         BEGIN
-          WRITELN(Fdig, Ch);
-          RESET(Fdig);
-          READ(Fdig, D)
+          WRITELN(Fdigit, Ch);
+          RESET(Fdigit);
+          READ(Fdigit, Digit)
         END
       ELSE
-        D := -1
+        Digit := -1
     END
   ELSE
-    D := -1    
+    Digit := -1    
 END;{ReadDigit}
 
 BEGIN{ReadDigitTest}
-  SuM := 0;
-  Dig := 1;
-  WHILE (Dig > -1)
+  Sum := 0;
+  CurrentDigit := 1;
+  WHILE (CurrentDigit > -1)
   DO
     BEGIN
-      ReadDigit(INPUT, Dig);
-      IF (Dig > -1)
+      ReadDigit(INPUT, CurrentDigit);
+      IF (Currentdigit> -1)
       THEN
-        Sum := Sum + Dig
+        Sum := Sum + CurrentDigit
     END;
   WRITELN(Sum: 1)
 END.{ReadDigitTest}

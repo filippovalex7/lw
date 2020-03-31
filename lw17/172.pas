@@ -1,52 +1,51 @@
 PROGRAM Number(INPUT, OUTPUT);
 VAR
   Num: INTEGER;
-PROCEDURE ReadDigit(VAR F: TEXT; VAR D: INTEGER);
+PROCEDURE ReadDigit(VAR Finput: TEXT; VAR Digit: INTEGER);
 VAR 
   Ch: CHAR;
-  Fdig: TEXT;
+  Fdigit: TEXT;
 BEGIN{ReadDigit}
-  REWRITE(Fdig);
-  IF (NOT EOLN(F))
+  REWRITE(Fdigit);
+  IF (NOT EOLN(Finput))
   THEN
     BEGIN
-      READ(F, Ch);
-      IF (Ch = '1') OR (Ch = '2') OR (Ch = '3') OR (Ch = '4') OR (Ch = '5') 
-        OR (Ch = '6') OR (Ch = '7') OR (Ch = '8') OR (Ch = '9')
+      READ(Finput, Ch);
+      IF (Ch >= '0') AND (Ch <= '9')
       THEN
         BEGIN
-          WRITELN(Fdig, Ch);
-          RESET(Fdig);
-          READ(Fdig, D)
+          WRITELN(Fdigit, Ch);
+          RESET(Fdigit);
+          READ(Fdigit, Digit)
         END
       ELSE
-        D := -1
+        Digit := -1
     END
   ELSE
-    D := -1    
+    Digit := -1    
 END;{ReadDigit}
-PROCEDURE ReadNumber(VAR F: TEXT; VAR N: INTEGER);
+PROCEDURE ReadNumber(VAR Finput: TEXT; VAR Number: INTEGER);
 VAR 
-  Max: INTEGER;
+  Total: INTEGER;
 BEGIN{ReadNumber}
-  Max := 0;
-  N := 0;
-  WHILE (Max > -1) AND NOT EOLN(F) AND (N > -1)
+  Total := 0;
+  Number := 0;
+  WHILE (Total > -1) AND NOT EOLN(Finput) AND (Number > -1)
   DO
     BEGIN
-      ReadDigit(F, N);
-      IF (N > -1)
+      ReadDigit(Finput, Number);
+      IF (Number > -1)
       THEN
-        IF (Max < MAXINT DIV 10 - N) AND (N > -1)
+        IF (Total < MAXINT DIV 10 - Number) AND (Number > -1)
         THEN
           BEGIN
-            Max := Max * 10 + N;
-            READ(F);
+            Total := Total * 10 + Number;
+            READ(Finput);
           END
         ELSE
-          Max := -1;
+          Total := -1;
     END;
-  N := Max
+  Number := Total
 END;{ReadNumber}
 BEGIN{Number}
   ReadNumber(INPUT, Num);
