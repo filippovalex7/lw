@@ -4,25 +4,26 @@ VAR
 PROCEDURE ReadDigit(VAR Finput: TEXT; VAR Digit: INTEGER);
 VAR 
   Ch: CHAR;
-  Fdigit: TEXT;
 BEGIN{ReadDigit}
-  REWRITE(Fdigit);
   IF (NOT EOLN(Finput))
   THEN
     BEGIN
       READ(Finput, Ch);
-      IF (Ch >= '0') AND (Ch <= '9')
-      THEN
-        BEGIN
-          WRITELN(Fdigit, Ch);
-          RESET(Fdigit);
-          READ(Fdigit, Digit)
-        END
+      IF Ch = '0' THEN Digit := 0 ELSE
+      IF Ch = '1' THEN Digit := 1 ELSE
+      IF Ch = '2' THEN Digit := 2 ELSE
+      IF Ch = '3' THEN Digit := 3 ELSE                    
+      IF Ch = '4' THEN Digit := 4 ELSE                                  
+      IF Ch = '5' THEN Digit := 5 ELSE
+      IF Ch = '6' THEN Digit := 6 ELSE
+      IF Ch = '7' THEN Digit := 7 ELSE
+      IF Ch = '8' THEN Digit := 8 ELSE
+      IF Ch = '9' THEN Digit := 9
       ELSE
-        Digit := -1
-    END
+        Digit := -1 
+    END  
   ELSE
-    Digit := -1    
+    Digit := -1
 END;{ReadDigit}
 PROCEDURE ReadNumber(VAR Finput: TEXT; VAR Number: INTEGER);
 VAR 
