@@ -1,14 +1,14 @@
 PROGRAM Number(INPUT, OUTPUT);
 VAR
   Num: INTEGER;
-PROCEDURE ReadDigit(VAR Finput: TEXT; VAR Digit: INTEGER);
+PROCEDURE ReadDigit(VAR InputFile: TEXT; VAR Digit: INTEGER);
 VAR 
   Ch: CHAR;
 BEGIN{ReadDigit}
-  IF (NOT EOLN(Finput))
+  IF (NOT EOLN(InputFile))
   THEN
     BEGIN
-      READ(Finput, Ch);
+      READ(InputFile, Ch);
       IF Ch = '0' THEN Digit := 0 ELSE
       IF Ch = '1' THEN Digit := 1 ELSE
       IF Ch = '2' THEN Digit := 2 ELSE
@@ -25,23 +25,23 @@ BEGIN{ReadDigit}
   ELSE
     Digit := -1
 END;{ReadDigit}
-PROCEDURE ReadNumber(VAR Finput: TEXT; VAR Number: INTEGER);
+PROCEDURE ReadNumber(VAR InputFile: TEXT; VAR Number: INTEGER);
 VAR 
   Total: INTEGER;
 BEGIN{ReadNumber}
   Total := 0;
   Number := 0;
-  WHILE (Total > -1) AND NOT EOLN(Finput) AND (Number > -1)
+  WHILE (Total > -1) AND NOT EOLN(InputFile) AND (Number > -1)
   DO
     BEGIN
-      ReadDigit(Finput, Number);
+      ReadDigit(InputFile, Number);
       IF (Number > -1)
       THEN
         IF (Total < MAXINT DIV 10 - Number) AND (Number > -1)
         THEN
           BEGIN
             Total := Total * 10 + Number;
-            READ(Finput);
+            READ(InputFile);
           END
         ELSE
           Total := -1;

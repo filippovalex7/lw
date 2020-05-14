@@ -1,14 +1,15 @@
 PROGRAM ReadDigitTest(INPUT, OUTPUT);
 VAR 
   CurrentDigit, Sum: INTEGER;
-PROCEDURE ReadDigit(VAR Finput: TEXT; VAR Digit: INTEGER);
+PROCEDURE ReadDigit(VAR InputFile: TEXT; VAR Digit: INTEGER);
 VAR 
   Ch: CHAR;
 BEGIN{ReadDigit}
-  IF (NOT EOLN(Finput))
+  Digit := -1;
+  IF (NOT EOLN(InputFile))
   THEN
     BEGIN
-      READ(Finput, Ch);
+      READ(InputFile, Ch);
       IF Ch = '0' THEN Digit := 0 ELSE
       IF Ch = '1' THEN Digit := 1 ELSE
       IF Ch = '2' THEN Digit := 2 ELSE
@@ -19,11 +20,7 @@ BEGIN{ReadDigit}
       IF Ch = '7' THEN Digit := 7 ELSE
       IF Ch = '8' THEN Digit := 8 ELSE
       IF Ch = '9' THEN Digit := 9
-      ELSE
-        Digit := -1 
-    END  
-  ELSE
-    Digit := -1
+    END
 END;{ReadDigit}
 BEGIN{ReadDigitTest}
   Sum := 0;
