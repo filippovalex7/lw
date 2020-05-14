@@ -40,6 +40,6 @@ BEGIN {XPrint}
   END
 END; {XPrint}
 BEGIN {XPrintTest}
-  READLN(Letter);
+  READ(Letter);
   XPrint(OUTPUT, Letter)
 END. {XPrintTest}
