@@ -80,4 +80,3 @@ BEGIN{AverageScore}
   ClassTotal := ClassTotal DIV (ClassSize * NumberOfScores);
   WRITELN(ClassTotal DIV 10, '.', ClassTotal MOD 10:1)
 END.{AverageScore}    
-
