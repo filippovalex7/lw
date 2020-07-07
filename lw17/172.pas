@@ -25,13 +25,14 @@ BEGIN{ReadDigit}
   ELSE
     Digit := -1
 END;{ReadDigit}
+
 PROCEDURE ReadNumber(VAR InputFile: TEXT; VAR Number: INTEGER);
 VAR 
   Total: INTEGER;
 BEGIN{ReadNumber}
   Total := 0;
   Number := 0;
-  WHILE (Total > -1) AND NOT EOLN(InputFile) AND (Number > -1)
+  WHILE (Total > -1) AND (Number > -1)
   DO
     BEGIN
       ReadDigit(InputFile, Number);
@@ -48,6 +49,7 @@ BEGIN{ReadNumber}
     END;
   Number := Total
 END;{ReadNumber}
+
 BEGIN{Number}
   ReadNumber(INPUT, Num);
   WRITELN(Num: 1)
