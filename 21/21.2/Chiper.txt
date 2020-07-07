@@ -1,0 +1,27 @@
+A-Z
+B-Y
+C-X
+D-W
+E-V
+F-U
+G-T
+H-S
+I-1
+J-2
+K-3
+L-4
+M-5
+N-6
+O-L
+P-K
+Q-G
+R-I
+S-H
+T-G
+U-F
+V-E
+W-D
+X-C
+Y-B
+Z-A
+ -&
