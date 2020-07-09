@@ -38,7 +38,7 @@ IMPLEMENTATION
   END; {IsertWord}
 
   PROCEDURE WriteInFile(VAR FileOut: TEXT; Ptr: Tree);
-  BEGIN{PrintTree}
+  BEGIN{WriteInFile}
     IF Ptr <> NIL
     THEN
       BEGIN
@@ -46,10 +46,10 @@ IMPLEMENTATION
         WRITELN(FileOut, Ptr^.Word, ' ', Ptr^.WordCount);
         WriteInFile(FileOut, Ptr^.RLink)
       END;
-  END; {PrintTree}
+  END; {WriteInFile}
 
   PROCEDURE ClearTree(VAR Ptr: Tree);
-  BEGIN{DelTree}
+  BEGIN{CleanTree}
     IF Ptr^.LLink <> NIL
     THEN
       ClearTree(Ptr^.LLink);
@@ -57,7 +57,7 @@ IMPLEMENTATION
     THEN
       ClearTree(Ptr^.RLink);
     DISPOSE(Ptr)
-  END; {DelTree}
+  END; {CleanTree}
 
 BEGIN
 END.
