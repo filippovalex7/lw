@@ -7,7 +7,7 @@ VAR
   PROCEDURE Value (VAR V100, V10, V1: CHAR);
 IMPLEMENTATION
   PROCEDURE Start;
-    {Сбрасывает счетчик в ноль}
+    {Г‘ГЎГ°Г Г±Г»ГўГ ГҐГІ Г±Г·ГҐГІГ·ГЁГЄ Гў Г­Г®Г«Гј}
     BEGIN{Start}
       Ones := '0';
       Tens := '0';
@@ -15,8 +15,8 @@ IMPLEMENTATION
     END;{Start}
  
   PROCEDURE Bump;
-    {Увеличивает 3-цифровой счетчик определенный   Ones, Tens, Hundreds
-     на единицу ,если он находится в диапaзоне от 0 до 999 }
+    {Г“ГўГҐГ«ГЁГ·ГЁГўГ ГҐГІ 3-Г¶ГЁГґГ°Г®ГўГ®Г© Г±Г·ГҐГІГ·ГЁГЄ Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­Г­Г»Г©   Ones, Tens, Hundreds
+     Г­Г  ГҐГ¤ГЁГ­ГЁГ¶Гі ,ГҐГ±Г«ГЁ Г®Г­ Г­Г ГµГ®Г¤ГЁГІГ±Гї Гў Г¤ГЁГ ГЇaГ§Г®Г­ГҐ Г®ГІ 0 Г¤Г® 999 }
     PROCEDURE NextDigit(VAR Digit: CHAR);
       BEGIN {NextDigit}
         IF Digit = '0' THEN Digit := '1' ELSE
@@ -52,12 +52,12 @@ IMPLEMENTATION
         END
     END; {Bump}
     PROCEDURE Value (VAR V100, V10, V1: CHAR);
-      {Возвращает содержимое счетчика}
+      {Г‚Г®Г§ГўГ°Г Г№Г ГҐГІ Г±Г®Г¤ГҐГ°Г¦ГЁГ¬Г®ГҐ Г±Г·ГҐГІГ·ГЁГЄГ }
       BEGIN {Value}
          V100 := Hundreds;
          V10 := Tens;
          V1 := Ones
       END {Value};
-BEGIN
-END. {UNIT Count3}
+BEGIN {Count3}
+END. {Count3}
 
