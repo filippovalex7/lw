@@ -1,6 +1,6 @@
 PROGRAM RCopyRun(INPUT, OUTPUT);
 
-PROCEDURE RCopy (VAR FileIn: TEXT);
+PROCEDURE RCopy(VAR FileIn: TEXT);
 VAR
   Ch: CHAR;
 BEGIN {RCopy}
@@ -9,7 +9,7 @@ BEGIN {RCopy}
     BEGIN
       READ(FileIn, Ch);
       WRITE(Ch);
-      RCopy (FileIn)
+      RCopy(FileIn)
     END
 END; {RCopy}
 
